@@ -15,6 +15,7 @@
 		F549C7C628D3A621003AA1DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F549C7C528D3A621003AA1DE /* Assets.xcassets */; };
 		F549C7C928D3A621003AA1DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F549C7C728D3A621003AA1DE /* LaunchScreen.storyboard */; };
 		F5515E8B28D7EC8900D01A4C /* ToDoDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5515E8A28D7EC8900D01A4C /* ToDoDetailTableViewController.swift */; };
+		F58A37DD28F2512700DC5D1F /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58A37DC28F2512700DC5D1F /* ListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F549C7C828D3A621003AA1DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F549C7CA28D3A621003AA1DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5515E8A28D7EC8900D01A4C /* ToDoDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDetailTableViewController.swift; sourceTree = "<group>"; };
+		F58A37DC28F2512700DC5D1F /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				F549C7BC28D3A61D003AA1DE /* AppDelegate.swift */,
 				F549C7BE28D3A61D003AA1DE /* SceneDelegate.swift */,
 				F51839A928ECF1E4000AADE5 /* ToDoItem.swift */,
+				F58A37DC28F2512700DC5D1F /* ListTableViewCell.swift */,
 				F549C7C028D3A61D003AA1DE /* ToDoListViewController.swift */,
 				F5515E8A28D7EC8900D01A4C /* ToDoDetailTableViewController.swift */,
 				F549C7C228D3A61D003AA1DE /* Main.storyboard */,
@@ -149,6 +152,7 @@
 				F51839AA28ECF1E4000AADE5 /* ToDoItem.swift in Sources */,
 				F5515E8B28D7EC8900D01A4C /* ToDoDetailTableViewController.swift in Sources */,
 				F549C7BF28D3A61D003AA1DE /* SceneDelegate.swift in Sources */,
+				F58A37DD28F2512700DC5D1F /* ListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

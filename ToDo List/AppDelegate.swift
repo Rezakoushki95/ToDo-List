@@ -40,7 +40,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 		let id = notification.request.identifier
 		print("Received in-app notification with ID \(id)")
 		UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-		completionHandler([.sound, .alert])
+		completionHandler([.sound, .banner ])
 	}
 }
 
