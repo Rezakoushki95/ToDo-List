@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ListTableViewCellDelegate: class {
+protocol ListTableViewCellDelegate: AnyObject {
 	
 	func checkBoxToggle(sender: ListTableViewCell)
 }
