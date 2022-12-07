@@ -16,7 +16,7 @@ private let dateFormatter: DateFormatter = {
 }()
 
 class ToDoDetailTableViewController: UITableViewController {
-
+	
 	@IBOutlet weak var datePicker: UIDatePicker!
 	@IBOutlet weak var nameField: UITextField!
 	@IBOutlet weak var noteView: UITextView!
@@ -32,7 +32,7 @@ class ToDoDetailTableViewController: UITableViewController {
 	var toDoItem: ToDoItem!
 	
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 		
 		// Hide the keyboard if user taps out of field
 		let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
@@ -47,10 +47,10 @@ class ToDoDetailTableViewController: UITableViewController {
 			saveBarButton.isEnabled = false
 		}
 		
-		 
+		
 		updateUI()
-
-    }
+		
+	}
 	
 	func updateUI() {
 		nameField.text = toDoItem.name
@@ -60,7 +60,21 @@ class ToDoDetailTableViewController: UITableViewController {
 		dateLabel.textColor = (reminderSwitch.isOn ? .black : .gray)
 		dateLabel.text = dateFormatter.string(from: toDoItem.date )
 		enableDisableSaveButton(text: nameField.text!)
-
+	}
+	
+	func updateReminderSwitch() {
+		LocalNotificationManager.isAuthorized { (authorized) in
+			DispatchQueue.main.async {
+				if !authorized && self.reminderSwitch.isOn {
+					self.oneButtonAlert(title: "User Has Not Allowed Notifcations", message: "To recive alerts for reminders, open the Settings app, select To Do List > Notifactions > Allow Notifications")
+					self.reminderSwitch.isOn = false
+				}
+				self.view.endEditing(true)
+				self.dateLabel.textColor = (self.reminderSwitch.isOn ? .black : .gray)
+				self.tableView.beginUpdates()
+				self.tableView.endUpdates()
+			}
+		}
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -91,10 +105,8 @@ class ToDoDetailTableViewController: UITableViewController {
 	}
 	
 	@IBAction func reminderSwitchChanged(_ sender: UISwitch) {
-		self.view.endEditing(true)
-		dateLabel.textColor = (reminderSwitch.isOn ? .black : .gray)
-		tableView.beginUpdates()
-		tableView.endUpdates()
+		updateReminderSwitch()
+		
 	}
 	@IBAction func datePickerChanged(_ sender: UIDatePicker) {
 		self.view.endEditing(true)
@@ -103,7 +115,7 @@ class ToDoDetailTableViewController: UITableViewController {
 }
 
 extension ToDoDetailTableViewController {
-
+	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		switch indexPath {
 		case datePickerIndexPath:
@@ -112,7 +124,7 @@ extension ToDoDetailTableViewController {
 			return notesRowHeight
 		default:
 			return defaultRowHeight
-		
+			
 		}
 	}
 	
